@@ -5,7 +5,7 @@ Description:
     Functions for working with pancakeswap-info-api pairs endpoint
 """
 
-
+from .          import REQUEST_HEADERS
 from .endpoints import form_url
 
 from requests   import get
@@ -13,11 +13,14 @@ from json       import loads
 from copy       import deepcopy
 
 
-def get_pairs():
+def get_pairs( protocol = "https" ):
     """Return pairs call results"""
-    _url = form_url( "pairs" )
+    _url = form_url( 
+        endpoint = "pairs",
+        protocol = protocol,
+        )
     _pairs = loads(
-        get( _url ).text
+        get( _url , headers = REQUEST_HEADERS ).text
         )
     _pairs_data = _pairs[ "data" ]
     # Convert required strings to floats
@@ -32,7 +35,7 @@ def get_pairs():
     return _pairs
 
 
-def get_pairs_by( pair , key ):
+def get_pairs_by( pair , key , protocol = "https" ):
     """Return pairs based on a specific key
 
     Args:
@@ -47,7 +50,7 @@ def get_pairs_by( pair , key ):
     
     """
     _ret = []
-    _pairs = get_pairs()
+    _pairs = get_pairs( protocol = protocol )
     _pairs_data = _pairs[ "data" ]
     for _pair in deepcopy( _pairs_data ):
         _pair_key = _pairs_data.get( _pair ).get( key )
@@ -57,5 +60,3 @@ def get_pairs_by( pair , key ):
             _pair_ret[ "pair_address" ] = _pair
             _ret.append( _pair_ret )
     return _ret
-
-    

@@ -9,11 +9,14 @@ _package_name = "python-pancakeswap"
 __author__ = "Shane Hutter"
 _author_email = "shane@intentropycs.com"
 _author_url = "https://intentropycs.com/"
-__version__ = "0.0.0-1"
+__version__ = "0.0.1"
 _desc = "A python wrapper for the pancakeswap-info-api"
 _license = "GNU GPL v3"
 
 _pkg = [ "pancakeswap", ]
+
+_user_agent = f"{_package_name}-{__version__}"
+REQUEST_HEADERS = { "User-Agent": _user_agent }
 
 PKG_INFO = {    
     "name": _package_name,

@@ -5,17 +5,21 @@ Description:
     Functions for working with the pancakeswap-info-api summary endpoint
 """
 
+from .          import REQUEST_HEADERS
 from .endpoints import form_url
 
 from requests   import get
 from json       import loads
 from copy       import deepcopy
 
-def get_summaries():
+def get_summaries( protocol = "https" ):
     """Return summary call results"""
-    _url = form_url( "summary" )
+    _url = form_url( 
+        endpoint = "summary",
+        protocol = protocol,
+        )
     _summary = loads(
-        get( _url ).text
+        get( _url , headers = REQUEST_HEADERS ).text
         )
     _summary_data = _summary[ "data" ]
     # Convert required strings to floats

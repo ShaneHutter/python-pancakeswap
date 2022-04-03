@@ -5,6 +5,7 @@ Description:
     Functions for pulling current token information.
 """
 
+from .          import REQUEST_HEADERS
 from .endpoints import form_url
 
 from requests   import get
@@ -12,12 +13,12 @@ from json       import loads
 from copy       import deepcopy
 
 
-def _resort_data( data , key ):
+def _resort_data( data , key , protocol = "https" ):
     """Internal function used to resort the returned dictionaries"""
     _ret = {
         "data": {}
         }
-    _tokens = get_tokens()
+    _tokens = get_tokens( protocol = protocol )
     _tokens_data = _tokens.get( "data" )
     for token_addr in deepcopy( _tokens_data ):
         _token = _tokens_data[ token_addr ]
@@ -43,7 +44,7 @@ def get_tokens( protocol = "https" ):
         protocol = protocol,
         )
     _tokens = loads( 
-        get( _url ).text 
+        get( _url , headers = REQUEST_HEADERS ).text 
         )
     _tokens_data = _tokens[ "data" ]
     # Convert price strings to floats
@@ -63,7 +64,7 @@ def get_token( token_address , protocol = "https" ):
         protocol = protocol,
         ).format( token_address = token_address )
     _token = loads( 
-        get( _url ).text 
+        get( _url , headers = REQUEST_HEADERS ).text 
         )
     _token_data = _token[ "data" ]
     # Convert price strings to floats
