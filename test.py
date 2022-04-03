@@ -17,10 +17,7 @@ from yaml       import safe_dump
 
 
 if __name__ == '__main__':
-    foobar = get_pairs_by(
-        pair = "DRIP",
-        key = "base_symbol",
-        )
+    foobar = get_summary()
     print(
         safe_dump( foobar )
         )
