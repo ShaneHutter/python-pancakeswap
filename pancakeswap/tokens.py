@@ -56,9 +56,17 @@ def get_tokens( protocol = "https" ):
 def get_token( token_address , protocol = "https" ):
     """Get current token data"""
     _url = f"{protocol}://{{api}}{{token}}".format( **PANCAKESWAP_URI , **PANCAKESWAP_ENDPOINTS_V2 ).format( token_address=token_address )
-    return loads( 
+    _token = loads( 
         get( _url ).text 
         )
+    _token_data = _token[ "data" ]
+    # Convert price strings to floats
+    for key in deepcopy( _token_data ):
+        if key.startswith( "price" ):
+            _token_data[ key ] = float(
+                _token_data[ key ]
+                )
+    return _token 
 
 
 def tokens_by( key , protocol = "https" ):

@@ -16,6 +16,6 @@ from yaml       import safe_dump
 
 if __name__ == '__main__':
     foobar = safe_dump( 
-        get_token_by( "DRIP" , "symbol" ) 
+        get_token( "0x20f663CEa80FaCE82ACDFA3aAE6862d246cE0333" ) 
         )
     print( foobar )
