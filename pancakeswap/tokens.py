@@ -69,7 +69,7 @@ def get_token( token_address , protocol = "https" ):
     return _token 
 
 
-def tokens_by( key , protocol = "https" ):
+def get_tokens_by( key , protocol = "https" ):
     """Create new dictionaries specifying a new key, instead of the default address"""
     return _resort_data(
         data=get_tokens( protocol = protocol ),
