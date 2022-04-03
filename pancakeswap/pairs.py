@@ -14,7 +14,7 @@ from copy       import deepcopy
 
 
 def get_pairs():
-    """Return pairs call result"""
+    """Return pairs call results"""
     _url = form_url( "pairs" )
     _pairs = loads(
         get( _url ).text
