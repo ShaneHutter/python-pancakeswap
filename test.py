@@ -10,16 +10,14 @@ Ideas:
 
 #from pancakeswap.endpoints  import *
 from pancakeswap.tokens     import *
+from pancakeswap.pairs      import *
+from pancakeswap.summary    import *
 
 from yaml       import safe_dump
 
 
 if __name__ == '__main__':
-    _token = {
-        "token": "WBNB",
-        "key": "symbol",
-        }
-    foobar = safe_dump( 
-        get_token_by( **_token ) 
+    foobar = get_pairs()
+    print(
+        safe_dump( foobar )
         )
-    print( foobar )
