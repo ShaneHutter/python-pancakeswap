@@ -5,7 +5,7 @@ Description:
     Functions for pulling current token information.
 """
 
-from .endpoints import *
+from .endpoints import form_url
 
 from requests   import get
 from json       import loads
@@ -38,7 +38,10 @@ def _resort_data( data , key ):
 
 def get_tokens( protocol = "https" ):
     """Get current token data"""
-    _url = f"{protocol}://{{api}}{{tokens}}".format( **PANCAKESWAP_URI , **PANCAKESWAP_ENDPOINTS_V2 )
+    _url = form_url(
+        endpoint = "tokens",
+        protocol = protocol,
+        )
     _tokens = loads( 
         get( _url ).text 
         )
@@ -55,7 +58,10 @@ def get_tokens( protocol = "https" ):
 
 def get_token( token_address , protocol = "https" ):
     """Get current token data"""
-    _url = f"{protocol}://{{api}}{{token}}".format( **PANCAKESWAP_URI , **PANCAKESWAP_ENDPOINTS_V2 ).format( token_address=token_address )
+    _url = form_url(
+        endpoint = "tokens",
+        protocol = protocol,
+        ).format( token_address = token_address )
     _token = loads( 
         get( _url ).text 
         )
@@ -78,7 +84,7 @@ def get_tokens_by( key , protocol = "https" ):
 
 def get_token_by( token , key , protocol = "https" ):
     """Get a single token by a key other than it's address"""
-    _tokens = tokens_by(
+    _tokens = get_tokens_by(
         key = key,
         protocol = protocol,
         )
