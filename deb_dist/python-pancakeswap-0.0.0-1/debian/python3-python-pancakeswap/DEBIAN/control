@@ -1,0 +1,11 @@
+Package: python3-python-pancakeswap
+Source: python-pancakeswap
+Version: 0.0.0-1-1
+Architecture: all
+Maintainer: Shane Hutter <shane@intentropycs.com>
+Installed-Size: 19
+Depends: python3:any
+Section: python
+Priority: optional
+Homepage: https://intentropycs.com/
+Description: A python wrapper for the pancakeswap-info-api

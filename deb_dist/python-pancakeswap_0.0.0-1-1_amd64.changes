@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Sun, 03 Apr 2022 11:27:48 +1000
+Source: python-pancakeswap
+Binary: python3-python-pancakeswap
+Architecture: all
+Version: 0.0.0-1-1
+Distribution: unstable
+Urgency: low
+Maintainer: Shane Hutter <shane@intentropycs.com>
+Changed-By: Shane Hutter <shane@intentropycs.com>
+Description:
+ python3-python-pancakeswap - A python wrapper for the pancakeswap-info-api
+Changes:
+ python-pancakeswap (0.0.0-1-1) unstable; urgency=low
+ .
+   * source package automatically created by stdeb 0.10.0
+Checksums-Sha1:
+ 0202a427f8c240e5771c4158d2d4609034d28994 6036 python-pancakeswap_0.0.0-1-1_amd64.buildinfo
+ 3ac7db2a467950ad84f4c947efd63ff3e2c42237 3076 python3-python-pancakeswap_0.0.0-1-1_all.deb
+Checksums-Sha256:
+ 8d711807ae87c51ef51ed672f154096720bf147e876928bd3862ebd354dae201 6036 python-pancakeswap_0.0.0-1-1_amd64.buildinfo
+ dbc8e7c44c0bd6dbc24ae91201428da5afe7a128f9de87811b1c71a6dd80b121 3076 python3-python-pancakeswap_0.0.0-1-1_all.deb
+Files:
+ 110a0ce72335d9e0f7704f6d521a4226 6036 python optional python-pancakeswap_0.0.0-1-1_amd64.buildinfo
+ a289ab22ac3d07f4473f6955bfe9af90 3076 python optional python3-python-pancakeswap_0.0.0-1-1_all.deb
