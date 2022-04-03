@@ -1,0 +1,21 @@
+pkgname="py3-pancakeswap"
+_pyname="pancakeswap"
+...
+depends="python3 py3-requests"
+makedepends="python3-dev py3-setuptools"
+...
+
+build() {
+    cd "$builddir"
+    python3 setup.py build
+}
+
+check() {
+    cd "$builddir"
+    python3 setup.py test
+}
+
+package() {
+    cd "$builddir"
+    python3 setup.py install --prefix=/usr --root="$pkgdir"
+}
