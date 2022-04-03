@@ -11,7 +11,7 @@ from requests   import get
 from json       import loads
 from copy       import deepcopy
 
-def get_summary():
+def get_summaries():
     """Return summary call results"""
     _url = form_url( "summary" )
     _summary = loads(
@@ -25,3 +25,15 @@ def get_summary():
                 _summary_data[ summary ][ key ]
                 )
     return _summary
+
+def get_summary( address ):
+    """Return a specific summary"""
+    _summaries = get_summaries()
+    _ret = {
+        "data": _summaries.get( "data" ).get( address ),
+        "updated_at": _summaries.get( "updated_at" ),
+        }
+    _ret[ "data" ].update(
+        { "summary_address": address }
+        )
+    return _ret
