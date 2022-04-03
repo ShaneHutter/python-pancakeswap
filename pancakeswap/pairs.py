@@ -33,7 +33,19 @@ def get_pairs():
 
 
 def get_pairs_by( pair , key ):
-    """Return pairs based on a specific key"""
+    """Return pairs based on a specific key
+
+    Args:
+        pair: (str)     The identifier for the pair.  For example if the
+                        key is "base_symbol" then the pair could be "DRIP",
+                        and this would return all pairs with the base_symbol
+                        of DRIP.
+        key: (str)      The key to match for the returned pairs
+
+    Returns:
+        A list of all pairs that match the query
+    
+    """
     _ret = []
     _pairs = get_pairs()
     _pairs_data = _pairs[ "data" ]
