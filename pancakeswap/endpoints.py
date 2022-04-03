@@ -12,5 +12,5 @@ PANCAKESWAP_ENDPOINTS_V2 = {
     "summary": "/v2/summary",
     "tokens": "/v2/tokens",
     "token": "/v2/tokens/{token_address}",
-    "paris": "/v2/pairs",
+    "pairs": "/v2/pairs",
     }
